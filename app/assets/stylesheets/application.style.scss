@@ -1,0 +1,66 @@
+.selection-0, .selection-1, .selection-2, .selection-3 {
+  margin: 3em 0;
+}
+
+label > input{ /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+label > input + .img-cover{ /* IMAGE STYLES */
+  border:3px solid transparent;
+  cursor: pointer;
+}
+
+label > input:checked + .img-cover{ /* (RADIO CHECKED) IMAGE STYLES */
+  border:3px solid #0d6efd;
+}
+
+label > input:checked + .img-cover > .candidate{ /* (RADIO CHECKED) IMAGE STYLES */
+  transform: scale(1.1);
+}
+
+
+
+
+.alert{
+  position: fixed;
+  right: 0;
+}
+
+.header {
+  .logo {
+    font-size: 3em;
+    font-weight: bold;
+    margin: 0.5em 0;
+  }
+}
+
+.candidate{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: transform 0.25s;
+}
+
+.votes {
+  margin-top: 1em;
+}
+
+.progress > div > div > span {
+  font-size: 12px;
+  display: inline-block;
+}
+
+.btn-cover {
+  text-align: right;
+}
+
+.img-cover {
+  overflow: hidden;
+  width: 306px;
+  height: 220px;
+  background-color: aqua;
+  transition: transform 0.25s;
+}

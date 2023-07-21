@@ -1,0 +1,64 @@
+<div class="container">
+  <h1 class="text-center">Голосование.</h1>
+
+  <% @nominations.each_with_index do |nomination, index| %>
+    <div class="selection-<%= index %>">
+      <h2><%= nomination.title %> года:</h2>
+
+      <%= form_with(model: @vote, local: true, remote: true, method: :post) do |form| %>
+        <% if @vote.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@vote.errors.count, "ошибка") %> запрещает проголосовать:</h2>
+            <ul>
+              <% @vote.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="row">
+          <% nomination.candidates.each do |candidate| %>
+            <div class="col-sm-1 col-md-3 text-center">
+                <label>
+                  <%= form.radio_button  :candidate_id, candidate.id %>
+                  <div class="img-cover">
+                    <div style="background-image: url('<%= candidate.img %>');" class="candidate"></div>
+                  </div>
+                </label>
+              <h4><%= candidate.title %></h4>
+              <div><%= candidate.description %></div>
+            </div>
+          <% end %>
+
+          <% if user_signed_in? && !votes_exists?(nomination.candidates) %>
+            <div class="btn-cover">
+              <%= form.submit "Голосовать", class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="votes">
+        <h3>Результаты голосования:</h3>
+        <% vote_result(nomination.candidates) %>
+        <div class="row">
+          <% nomination.candidates.each do |candidate| %>
+            <div class="col-sm-1 col-md-2">
+              <%= candidate.title %>
+            </div>
+            <div class="col-sm-1 col-md-10">
+              <div class="progress" style="">
+                <div class="progress-bar" style="width: <%= size_current_votes(candidate.id).zero? ? 0 : @size_votes / (@votes.size * 1.00) * 100 %>%;">
+                  <div>
+                    <span><%= @size_votes %>–</span><span><%= @size_votes.zero? || @votes.size.zero?  ? 0 : @size_votes / (@votes.size * 1.00) * 100 %>%</span> <span>из <%= @votes.size %> голосов</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
