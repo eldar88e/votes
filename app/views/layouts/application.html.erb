@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyProj</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body>
+
+  <script type="text/javascript">
+      setTimeout("document.getElementsByClassName('alert')[0].style.display = 'none'", 5000);
+  </script>
+
+  <% if notice %><p class="alert alert-success"><%= notice %></p> <% end %>
+  <% if alert %><p class="alert alert-danger"><%= alert %></p><% end %>
+  <header>
+    <div class="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-1 col-md-6">
+            <div class="logo">Гордость Государства.</div>
+          </div>
+          <div class="col-1 col-md-6">
+            <div style="text-align: right;">
+              <% if user_signed_in? %>
+                <span>Здравствуйте, <%= current_user.email %></span>
+                <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+              <% else %>
+                <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <%= yield %>
+  </body>
+</html>
