@@ -15,11 +15,11 @@ Things you may want to cover:
 
 create in main catalog the project .env.development file and write
 
-Exaple:
+Example:
 
 DB_HOST=localhost
 
-DB_USER=blabla
+DB_USER=bla-bla
 
 DB_PASSWORD=123456
 
