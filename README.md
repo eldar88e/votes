@@ -5,13 +5,23 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 3.2.1, RoR 7.0.6
 
 * System dependencies
 
 * Configuration
 
-* Database creation
+* Database creation PG
+
+create in main catalog the project .env.development file and write
+
+Exaple:
+
+DB_HOST=localhost
+
+DB_USER=blabla
+
+DB_PASSWORD=123456
 
 * Database initialization
 
@@ -21,4 +31,12 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+rails db:create
+
+rails db:migrate
+
+rails db:seed
+
+run project:  bin/dev
+
+
