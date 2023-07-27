@@ -13,6 +13,7 @@ gem "devise", "~> 4.9"
 gem "twilio-ruby"
 gem 'pg', '~> 1.5'
 gem 'sidekiq'
+gem 'dotenv-rails'
 
 gem "sprockets-rails"
 gem "jsbundling-rails"

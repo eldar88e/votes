@@ -3,13 +3,13 @@
 
 module Twilio
   class SmsService
-    TWILIO_ACCOUNT_SID = 'ACea047588c9dc0ca2a7f4c573b6d0199d' #ENV['TWILIO_ACCOUNT_SID']
-    TWILIO_AUTH_TOKEN  = '29a25b1484539319d539ef34076916de'   #ENV['TWILIO_AUTH_TOKEN']
-    TWILIO_FROM_PHONE  = '+12179200318'
-    TWILIO_TEST_PHONE  = '+905058059917'
+    TWILIO_ACCOUNT_SID = ENV['TWILIO_ACCOUNT_SID']
+    TWILIO_AUTH_TOKEN  = ENV['TWILIO_AUTH_TOKEN']
+    TWILIO_FROM_PHONE  = ENV['TWILIO_FROM_PHONE']
+    TWILIO_TEST_PHONE  = ENV['TWILIO_TEST_PHONE']
     def initialize(to_phone_number)
-      @code            = rand(100000..999999)
-      @to_phone_number = to_phone_number.to_s
+      @code            = rand(1000..9999)
+      @to_phone_number = to_phone_number
       @status          = nil
     end
 
