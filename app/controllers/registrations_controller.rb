@@ -6,7 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
-        send_confirmation_code(resource)
+        SendConfirmationCodeJob.perform_later(resource)
         set_flash_message! :notice, :signed_up
 
         flash[:email] = resource.email

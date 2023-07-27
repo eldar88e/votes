@@ -14,7 +14,7 @@ class SessionsController < Devise::SessionsController
         flash[:email] = user[:email]
         redirect_to enter_sms_code_path, alert: 'На ваш телефон ранее был отправлен смс-код. Пожалуйста, подтвердите свой аккаунт.'
       else
-        send_confirmation_code(user)
+        SendConfirmationCodeJob.perform_later(user)
         flash[:email] = user.email
         redirect_to enter_sms_code_path,
                     notice: "Вы зарегистрированы, подтвердите свою учетную запись. Введите отправленный код из СМС."
