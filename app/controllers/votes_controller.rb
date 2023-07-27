@@ -8,13 +8,13 @@ class VotesController < ApplicationController
   end
 
   def create
-    p data  = { user_id: current_user.id, candidate_id: vote_params['candidate_id'].to_i }
+    data = { user_id: current_user.id, candidate_id: vote_params['candidate_id'].to_i }
     if Vote.create(data)
       nomination_id = Candidate.find_by(id: data[:candidate_id]).nomination_id
       nomination = Nomination.find_by(id: nomination_id).title
       redirect_to root_path, notice: "Вы успешно проглосовали за номинацию #{nomination} года!"
     else
-      render :new, alert: 'Вы не смогли проголосовать.'
+      render :index, alert: 'Вы не смогли проголосовать.'
     end
   rescue ActiveRecord::RecordNotUnique => e
     redirect_to root_path, alert: "#{e}"

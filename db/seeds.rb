@@ -24,12 +24,12 @@ CANDIDATES.each do |candidate|
                    nomination_id: candidate[:nomination_id])
 end
 
-User.create(email: 'eldar0112@gmail.com', password: '123456')
-User.create(email: 'eminov@gmail.com', password: '654321')
-User.create(email: 'goo@gmail.com', password: '654321')
-User.create(email: 'loo@gmail.com', password: '654321')
-User.create(email: 'boo@gmail.com', password: '654321')
-User.create(email: 'roo@gmail.com', password: '654321')
+User.create(email: 'fake01@gmail.com', password: '123456', phone: '7978', status: true)
+User.create(email: 'fake02@gmail.com', password: '123456', phone: '3214', status: true)
+User.create(email: 'fake03@gmail.com', password: '123456', phone: '2589', status: true)
+User.create(email: 'fake04@gmail.com', password: '123456', phone: '9632', status: true)
+User.create(email: 'fake05@gmail.com', password: '123456', phone: '1478', status: true)
+User.create(email: 'fake06@gmail.com', password: '123456', phone: '2584', status: true)
 
 Vote.create([
               { user_id: 2, candidate_id: 1 },

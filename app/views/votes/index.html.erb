@@ -51,7 +51,7 @@
               <div class="progress" style="">
                 <div class="progress-bar" style="width: <%= size_current_votes(candidate.id).zero? ? 0 : @size_votes / (@votes.size * 1.00) * 100 %>%;">
                   <div>
-                    <span><%= @size_votes %>–</span><span><%= @size_votes.zero? || @votes.size.zero?  ? 0 : @size_votes / (@votes.size * 1.00) * 100 %>%</span> <span>из <%= @votes.size %> голосов</span>
+                    <span><%= @size_votes %>–</span><span><%= @size_votes.zero? || @votes.size.zero?  ? 0 : (@size_votes / (@votes.size * 1.00) * 100).round(2) %>%</span> <span>из <%= @votes.size %> голосов</span>
                   </div>
                 </div>
               </div>

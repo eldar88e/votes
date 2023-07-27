@@ -10,6 +10,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "bootsnap", require: false
 gem "devise", "~> 4.9"
+gem "twilio-ruby"
 gem 'pg', '~> 1.5'
 
 gem "sprockets-rails"
@@ -18,8 +19,7 @@ gem "cssbundling-rails"
 gem "jbuilder"
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem "byebug"
+  gem "pry"
 end
 
 group :development do
