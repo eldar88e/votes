@@ -12,6 +12,7 @@ gem "bootsnap", require: false
 gem "devise", "~> 4.9"
 gem "twilio-ruby"
 gem 'pg', '~> 1.5'
+gem 'sidekiq'
 
 gem "sprockets-rails"
 gem "jsbundling-rails"
