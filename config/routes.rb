@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users, controllers: {
+    sessions: 'sessions',
+    registrations: 'registrations'
+  }
 
-  # Defines the root path route ("/")
-  #root "users#index"
+  get 'enter_sms_code', to: 'sms_verification#new', as: 'enter_sms_code'
+  post 'enter_sms_code', to: 'sms_verification#create'
 
   post 'votes', to: 'votes#create'
   get 'votes', to: 'votes#index'
-
-  #delete 'users/sign_out', to: devise/sessions#destroy
-
   root 'votes#index'
 end
