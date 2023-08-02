@@ -10,7 +10,8 @@ Things you may want to cover:
 * System dependencies
 
 * Configuration
-
+* Twilio
+* Sidekiq
 * Database creation PG
 
 create in main catalog the project .env.development file and write
@@ -39,4 +40,4 @@ rails db:seed
 
 run project:  bin/dev
 
-
+run sidekiq: bundle exec sidekiq -q default
