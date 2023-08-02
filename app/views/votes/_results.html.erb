@@ -1,0 +1,22 @@
+<turbo-frame id="results-<%= nomination.id %>">
+  <div class="votes">
+    <h3>Результаты голосования:</h3>
+    <% vote_result(nomination.id) %>
+    <div class="row">
+      <% nomination.candidates.each do |candidate| %>
+        <div class="col-sm-1 col-md-2">
+          <%= candidate.title %>
+        </div>
+        <div class="col-sm-1 col-md-10">
+          <div class="progress" style="">
+            <div class="progress-bar" style="width: <%= percent = count_percent(candidate.id) %>%;">
+              <div>
+                <%= @size_votes %>–<%= percent %>% из <%= @votes.size %> Голосов
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</turbo-frame>

@@ -1,14 +1,14 @@
 module VotesHelper
-  def votes_exists?(candidates)
-    candidates_ids = candidates.pluck(:id)
-    Vote.exists?(candidate_id: candidates_ids, user_id: current_user.id)
+  def votes_exists?(id)
+    Vote.exists?(nomination_id: id, user_id: current_user&.id)
   end
 
-  def vote_result(candidates)
-    @votes = Vote.where(candidate_id: candidates.pluck(:id))
+  def vote_result(id)
+    @votes = Vote.where(nomination_id: id)
   end
 
-  def size_current_votes(candidate_id)
-    @size_votes = @votes.select { |i| i.candidate_id == candidate_id }.size
+  def count_percent(id)
+    @size_votes = @votes.count { |i| i.candidate_id == id }
+    @size_votes.size.zero? ? 0 : (@size_votes / (@votes.size * 1.00) * 100).round(2)
   end
 end

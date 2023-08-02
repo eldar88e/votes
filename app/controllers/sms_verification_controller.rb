@@ -4,12 +4,11 @@ class SmsVerificationController < ApplicationController
   attr_reader :user
 
   def new
-    @sms   = SmsVerification.new
     @email = flash[:email]
   end
 
   def create
-    user    = User.find_by(email: strong_params[:email])
+    user = User.find_by(email: strong_params[:email])
     return redirect_to new_user_session_path if user.nil?
 
     code_db = SmsVerification.where(user_id: user.id).order(created_at: :desc).first

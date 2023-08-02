@@ -1,20 +1,22 @@
 class Vote < ApplicationRecord
   belongs_to :user
   belongs_to :candidate
+  belongs_to :nomination
+  validates :user_id, presence: true
+  validates :candidate_id, presence: true
+  validates :nomination_id, presence: true
 
-  def create(**args)
-    if vote_exist?(args)
+  def self.create(args)
+    if self.vote_exist?(args)
       raise ActiveRecord::RecordNotUnique.new 'Вы уже проголосовали за данную номинацию!'
     else
-      super(**args)
+      super(args)
     end
   end
 
   private
 
-  def vote_exist?(**args)
-    nomination_id = Candidate.find_by(id: args[:candidate_id]).nomination_id
-    concurrent    = Nomination.includes(:candidates).where(nominations: { id: nomination_id })[0].candidates.pluck(:id)
-    Vote.exists?(candidate_id: concurrent, user_id: create_user.id)
+  def self.vote_exist?(args)
+    Vote.exists?(nomination_id: args[:nomination_id], user_id: args[:user_id])
   end
 end

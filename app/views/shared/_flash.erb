@@ -1,0 +1,6 @@
+<% flash.each do |k, v| %>
+  <script type="text/javascript">
+      setTimeout("document.getElementsByClassName('fl')[0].style.opacity = 0", 6000);
+  </script>
+  <%= tag.p v, class: "fl alert alert-#{k == 'alert' ? 'danger' : 'success'}", role: 'alert' %>
+<% end %>

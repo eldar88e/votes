@@ -1,0 +1,10 @@
+<h2>SMS-код</h2>
+<%= form_with(model: SmsVerification, url: enter_sms_code_path) do |form| %>
+  <%= form.hidden_field :email, value: email %>
+  <div class="field mb-3">
+    <%= form.label 'Введите SMS-код', class: 'form-label' %>
+    <%= form.text_field :sms_code, autofocus: true, class: 'form-control', placeholder: "SMS-код" %>
+  </div>
+
+  <%= form.submit 'Отправить', class: 'btn btn-primary' %>
+<% end %>

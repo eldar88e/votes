@@ -1,0 +1,38 @@
+<turbo-frame id="form-<%= nomination.id %>">
+  <%= form_with(model: vote, local: true, remote: true, method: :post) do |form| %>
+    <% if vote.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(vote.errors.count, "ошибка") %> запрещает проголосовать:</h2>
+        <ul>
+          <% vote.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form.hidden_field  :nomination_id, value: nomination.id %>
+
+    <% hide = votes_exists?(nomination.id) %>
+    <div class="row">
+      <% nomination.candidates.each do |candidate| %>
+        <div class="col-sm-1 col-md-3 text-center">
+          <label>
+            <%= form.radio_button  :candidate_id, candidate.id %>
+            <div class="img-cover-main <%= 'img-cover' unless hide %>">
+              <div style="background-image: url('<%= candidate.img %>');" class="candidate"></div>
+            </div>
+          </label>
+          <h4><%= candidate.title %></h4>
+          <div><%= candidate.description %></div>
+        </div>
+      <% end %>
+
+      <% if user_signed_in? && !hide %>
+        <div class="btn-cover">
+          <%= form.submit "Голосовать", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</turbo-frame>

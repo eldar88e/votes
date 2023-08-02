@@ -13,11 +13,21 @@
   <body>
 
   <script type="text/javascript">
-      setTimeout("document.getElementsByClassName('alert')[0].style.display = 'none'", 5000);
+      function hideFlash(){
+          let flash_tag = document.getElementsByClassName('al')[0];
+          if(flash_tag !== undefined)
+          {
+              flash_tag.style.opacity = 0;
+          }
+      }
+      setTimeout(hideFlash, 5000);
   </script>
 
-  <% if notice %><p class="alert alert-success"><%= notice %></p> <% end %>
-  <% if alert %><p class="alert alert-danger"><%= alert %></p><% end %>
+  <% if notice %><p class="al alert alert-success"><%= notice %></p> <% end %>
+  <% if alert %><p class="al alert alert-danger"><%= alert %></p><% end %>
+  <div id='flash'>
+    <% render 'shared/flash' %>
+  </div>
   <header>
     <div class="header">
       <div class="container">
