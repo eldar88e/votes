@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_26_020400) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_01_064148) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,9 +60,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_020400) do
     t.bigint "candidate_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "nomination_id"
     t.index ["user_id", "candidate_id"], name: "index_votes_on_user_id_and_candidate_id", unique: true
+    t.index ["user_id", "nomination_id"], name: "index_votes_on_user_id_and_nomination_id", unique: true
   end
 
   add_foreign_key "candidates", "nominations"
   add_foreign_key "sms_verifications", "users"
+  add_foreign_key "votes", "nominations"
 end

@@ -1,0 +1,9 @@
+<%= turbo_stream.update "results-#{params[:vote][:nomination_id].to_i}",
+                        partial: 'results',
+                        locals: { nomination: Nomination.where(id: params[:vote][:nomination_id].to_i).includes(:candidates).first } %>
+<%= turbo_stream.update "form-#{params[:vote][:nomination_id].to_i}",
+                        partial: 'form',
+                        locals: { nomination: Nomination.where(id: params[:vote][:nomination_id].to_i).includes(:candidates).first,
+                                  vote: Vote.new} %>
+<%= prepend_flash %>
+

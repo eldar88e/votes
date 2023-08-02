@@ -1,0 +1,6 @@
+<div class="selection-<%= index %>">
+  <h2><%= nomination.title %> года:</h2>
+
+  <%= render 'form', vote: @vote, nomination: nomination %>
+  <%= render 'results', nomination: nomination %>
+</div>

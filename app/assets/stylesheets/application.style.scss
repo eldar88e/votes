@@ -6,25 +6,68 @@ label > input{ /* HIDE RADIO */
   visibility: hidden; /* Makes input not-clickable */
   position: absolute; /* Remove input from document flow */
 }
-label > input + .img-cover{ /* IMAGE STYLES */
+label > input + .img-cover-main{ /* IMAGE STYLES */
   border:3px solid transparent;
   cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  width: 306px;
+  height: 220px;
+  background-color: white;
+  transition: transform 0.25s;
+}
+
+label .order::before{
+  content: "ваш выбор";
+  font-size: 10px;
+  line-height: 10px;
+  padding: 7px 0px;
+  font-weight: bold;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  bottom: 5px;
+  left: 5px;
+  background: #0c6efd;
 }
 
 label > input:checked + .img-cover{ /* (RADIO CHECKED) IMAGE STYLES */
   border:3px solid #0d6efd;
 }
 
+label > input:checked + .img-cover::after{
+  content: '\2713';
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: bold;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #0c6efd;
+}
+
 label > input:checked + .img-cover > .candidate{ /* (RADIO CHECKED) IMAGE STYLES */
   transform: scale(1.1);
 }
 
-
-
+label > .img-cover-main:hover > .candidate{
+  transform: scale(1.1);
+}
 
 .alert{
   position: fixed;
-  right: 0;
+  z-index: 9;
+  top: 5px;
+  right: 5px;
+  opacity: 1;
+  transition: all 0.7s ease;
 }
 
 .header {
@@ -55,12 +98,4 @@ label > input:checked + .img-cover > .candidate{ /* (RADIO CHECKED) IMAGE STYLES
 
 .btn-cover {
   text-align: right;
-}
-
-.img-cover {
-  overflow: hidden;
-  width: 306px;
-  height: 220px;
-  background-color: aqua;
-  transition: transform 0.25s;
 }
