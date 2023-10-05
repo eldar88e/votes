@@ -8,10 +8,15 @@
           <%= candidate.title %>
         </div>
         <div class="col-sm-1 col-md-10">
-          <div class="progress" style="">
-            <div class="progress-bar" style="width: <%= percent = count_percent(candidate.id) %>%;">
+          <div class="progress">
+            <% percent = count_percent(candidate.id) %>
+            <div class="progress-bar" style="<%= percent.zero? ? 'width: 100%; background: #4d94ff;' : "width: #{percent}%;" %>">
               <div>
-                <%= @size_votes %>–<%= percent %>% из <%= @votes.size %> Голосов
+                <% if percent.zero? %>
+                  Еще не проголосовали.
+                <% else %>
+                  <%= @size_votes %>–<%= percent %>% из <%= @votes.size %> Голосов.
+                <% end %>
               </div>
             </div>
           </div>
