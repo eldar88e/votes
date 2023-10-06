@@ -1,13 +1,6 @@
 NOMINATION = [{ title: 'Учитель'}, { title: 'Воспитатель'}, { title: 'Спортсмен'}, { title: 'Врач'}]
 
-max_length = 500
-biography_raw = Faker::Lorem.paragraph(sentence_count: 3, supplemental: false)
-biography2_raw = Faker::Lorem.paragraph(sentence_count: 3, supplemental: false)
-biography3_raw = Faker::Lorem.paragraph(sentence_count: 3, supplemental: false)
-bio = biography_raw[0, max_length]
-bio2 = biography2_raw[0, max_length]
-bio3 = biography3_raw[0, max_length]
-biography = -> { [bio, bio2, bio3].sample }
+biography = -> { Faker::Lorem.paragraph(sentence_count: 2, supplemental: false)[0, 500] }
 
 CANDIDATES =
   [{ title: Faker::Name.name, description: biography.call, img: '/images/mJXqgqRBLMW8xBHMP.jpg', nomination_id: 1},
