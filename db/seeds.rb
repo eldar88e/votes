@@ -49,7 +49,7 @@ rands = [(1..3), (4..6), (7..9), (10..12)]
 
 users_ids = User.pluck(:id)
 users_ids.pop
-nominations = Nomination.pluck(:id)
+nominations = Nomination.pluck(:id)[0..-2]
 
 users_ids.each do |id|
   nominations.each { |i| Vote.create(user_id: id, candidate_id: rand(rands[i-1]), nomination_id: i) }
