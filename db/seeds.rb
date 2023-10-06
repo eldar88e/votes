@@ -1,33 +1,23 @@
-NOMINATION = [{ title: 'Учитель'}, { title: 'Воспитатель'}, { title: 'Спортсмен'}, { title: 'Врач'}]
+NOMINATION = [{ title: 'Учитель' }, { title: 'Воспитатель' }, { title: 'Спортсмен' }, { title: 'Врач' }].freeze
 
 biography = -> { Faker::Lorem.paragraph(sentence_count: 2, supplemental: false)[0, 500] }
 
 CANDIDATES =
-  [{ title: Faker::Name.name, description: biography.call, img: '/images/mJXqgqRBLMW8xBHMP.jpg', nomination_id: 1},
-   { title: Faker::Name.name, description: biography.call, img: '/images/NqEMp50IkORLXlC.jpg', nomination_id: 1},
-   { title: Faker::Name.name, description: biography.call, img: '/images/YJXqgqRBLMW8xRY6nA.jpg', nomination_id: 1},
-   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 2},
-   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 2},
-   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 2},
-   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 3},
-   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 3},
-   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 3},
-   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 4},
-   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 4},
-   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 4}]
+  [{ title: Faker::Name.name, description: biography.call, img: '/images/mJXqgqRBLMW8xBHMP.jpg', nomination_id: 1 },
+   { title: Faker::Name.name, description: biography.call, img: '/images/NqEMp50IkORLXlC.jpg', nomination_id: 1 },
+   { title: Faker::Name.name, description: biography.call, img: '/images/YJXqgqRBLMW8xRY6nA.jpg', nomination_id: 1 },
+   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 2 },
+   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 2 },
+   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 2 },
+   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 3 },
+   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 3 },
+   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 3 },
+   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 4 },
+   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 4 },
+   { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 4 }].freeze
 
-NOMINATION.each do |nomination|
-  Nomination.create(title: nomination[:title])
-rescue
-  next
-end
-
-CANDIDATES.each do |candidate|
-  Candidate.create(title: candidate[:title],
-                   description: candidate[:description],
-                   img: candidate[:img],
-                   nomination_id: candidate[:nomination_id])
-end
+Nomination.create(NOMINATION)
+Candidate.create(CANDIDATES)
 
 # Faker::PhoneNumber.cell_phone
 User.create(email: Faker::Internet.email, password: '123456', phone: '7978353456', status: true)
@@ -45,7 +35,7 @@ users_ids.pop
 nominations = Nomination.pluck(:id)[0..-2]
 
 users_ids.each do |id|
-  nominations.each { |i| Vote.create(user_id: id, candidate_id: rand(rands[i-1]), nomination_id: i) }
+  nominations.each { |i| Vote.create(user_id: id, candidate_id: rand(rands[i - 1]), nomination_id: i) }
 end
 
 puts '*****The tables were filled!*****'
