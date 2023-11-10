@@ -13,30 +13,32 @@ Things you may want to cover:
 
 * Database creation PG
 
-Create in project catalog .env-file and write
+Create in project catalog .env-file and write:
 
-DB_HOST=localhost
+* DB_HOST=localhost
 
-DB_USER=user_your_db
+* DB_USER=user_your_db
 
-DB_PASSWORD=pass_your_db
+* DB_PASSWORD=pass_your_db
 
-TWILIO_ACCOUNT_SID="<your_twilio_account_sid>"
+* TWILIO_ACCOUNT_SID="<your_twilio_account_sid>"
 
-TWILIO_AUTH_TOKEN="<your_twilio_token>"
+* TWILIO_AUTH_TOKEN="<your_twilio_token>"
 
-TWILIO_FROM_PHONE="<phone_for_twilio>"
+* TWILIO_FROM_PHONE="<phone_for_twilio>"
 
-* Database initialization
+Database initialization
 
-* How to run the test suite
+How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+Deployment instructions
 
-rails db:setup
-yarn install
-run project:  bin/dev
+Develop run instructions
+
+* rails db:setup
+* yarn install
+* bin/dev
 
 

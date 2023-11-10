@@ -14,6 +14,10 @@ class Vote < ApplicationRecord
     end
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["candidate_id", "created_at", "id", "nomination_id", "updated_at", "user_id"]
+  end
+
   private
 
   def self.vote_exist?(args)
