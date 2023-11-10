@@ -39,3 +39,4 @@ users_ids.each do |id|
 end
 
 puts '*****The tables were filled!*****'
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

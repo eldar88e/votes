@@ -16,29 +16,31 @@ gem 'pg', '~> 1.5'
 gem 'sidekiq'
 gem 'dotenv-rails'
 
-gem "sprockets-rails"
-gem "jsbundling-rails"
-gem "cssbundling-rails"
-gem "jbuilder"
+gem 'sprockets-rails'
+gem 'jsbundling-rails'
+gem 'cssbundling-rails'
+gem 'jbuilder'
+gem 'activeadmin'
+gem 'sassc-rails'
 
 group :development, :test do
-  gem "pry"
-  gem 'faker'
   gem 'brakeman' # report vulnerabilities
+  gem 'faker'
+  gem 'pry'
 end
 
 group :development do
-  gem "web-console"
-  gem 'listen'            # Monitoring changes in files and directories in real-time
-  gem 'better_errors'     # Shows better errors description on errors page
-  gem 'binding_of_caller'
-  gem 'chusaku', require: false  # annotations for routes
-  gem 'letter_opener'
-  gem 'rails-erd'
-  gem "rubocop-performance"
-  gem "rubocop-rails"
-  gem "rubocop-rspec"
   gem 'annotate'
+  gem 'better_errors' # Shows better errors description on errors page
+  gem 'binding_of_caller'
+  gem 'chusaku', require: false # annotations for routes
+  gem 'letter_opener'
+  gem 'listen' # Monitoring changes in files and directories in real-time
+  gem 'rails-erd'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
+  gem 'web-console'
 end
 
 group :test do
