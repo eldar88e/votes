@@ -1,0 +1,15 @@
+#Russian
+
+ru:
+  languages:
+    en: 'Английский'
+    ru: 'Русский'
+    tr: 'Турецкий'
+  sign_up: 'Зарегистрироваться'
+  sign_in: 'Войти'
+  hello: 'Здравствуйте'
+  main_header: 'Гордость государства'
+  voting_results: 'Результаты голосования'
+  voting: 'Голосование'
+  button_vote: 'Голосовать'
+  button_sign_out: 'Выйти'

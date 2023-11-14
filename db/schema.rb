@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_10_014756) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_10_160032) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "timescaledb"
@@ -41,9 +41,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_10_014756) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "candidates", force: :cascade do |t|
+  create_table "candidate_translations", force: :cascade do |t|
+    t.bigint "candidate_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "title"
     t.text "description"
+    t.index ["candidate_id"], name: "index_candidate_translations_on_candidate_id"
+    t.index ["locale"], name: "index_candidate_translations_on_locale"
+  end
+
+  create_table "candidates", force: :cascade do |t|
     t.string "img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

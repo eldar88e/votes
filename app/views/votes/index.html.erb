@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="text-center">Голосование.</h1>
+  <h1 class="text-center"><%= t(:voting) %>.</h1>
 
   <% @nominations.each_with_index do |nomination, index| %>
     <%= render 'nomination', nomination: nomination, index: index %>

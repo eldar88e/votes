@@ -22,6 +22,9 @@ gem 'cssbundling-rails'
 gem 'jbuilder'
 gem 'activeadmin'
 gem 'sassc-rails'
+gem 'rails-i18n'
+gem 'globalize'
+gem 'globalize-accessors'
 
 group :development, :test do
   gem 'brakeman' # report vulnerabilities

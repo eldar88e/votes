@@ -34,16 +34,29 @@
       <div class="container">
         <div class="row">
           <div class="col-1 col-md-6">
-            <div class="logo">Гордость Государства.</div>
+            <div class="logo"><a href="/"><%= t(:main_header) %>.</a></div>
           </div>
           <div class="col-1 col-md-6">
-            <div style="text-align: right;">
-              <% if user_signed_in? %>
-                <span>Здравствуйте, <%= current_user.email %></span>
-                <%= button_to 'Выйти', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
-              <% else %>
-                <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
-              <% end %>
+            <div class="row">
+              <div class="col-6">
+                <ul id='language-menu'>
+                  <% I18n.available_locales.each do |locale| %>
+                    <li>
+                      <a href="<%= "/#{locale}" %>">
+                        <%= I18n.t("languages.#{locale}") %>
+                      </a>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+              <div class="col-6" style="text-align: right;">
+                <% if user_signed_in? %>
+                  <span><%= t(:hello) %>, <%= current_user.email %></span>
+                  <%= button_to t(:button_sign_out), destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
+                <% else %>
+                  <%= link_to t(:sign_in), new_user_session_path %> <%= link_to t(:sign_up), new_user_registration_path %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
