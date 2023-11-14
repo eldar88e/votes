@@ -20,5 +20,7 @@ module MyProj
     # config.eager_load_paths << Rails.root.join("extras")
     config.active_job.queue_adapter = :sidekiq
     config.generators.test_framework false
+    config.i18n.available_locales = %i[en ru tr]
+    config.i18n.fallbacks = [I18n.default_locale]
   end
 end

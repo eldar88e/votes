@@ -100,3 +100,23 @@ label > .img-cover-main:hover > .candidate{
 .btn-cover {
   text-align: right;
 }
+
+
+ul#language-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+
+    a {
+      text-decoration: none;
+      font-size: 12px;
+      display: block;
+      padding: 10px 5px;
+    }
+  }
+}

@@ -30,7 +30,7 @@
 
       <% if user_signed_in? && !hide %>
         <div class="btn-cover">
-          <%= form.submit "Голосовать", class: 'btn btn-primary' %>
+          <%= form.submit t(:button_vote), class: 'btn btn-primary' %>
         </div>
       <% end %>
     </div>

@@ -3,6 +3,9 @@ class Candidate < ApplicationRecord
   has_many :votes
   has_many :users, through: :votes
 
+  translates :title, :description, fallbacks_for_empty_translations: true
+  globalize_accessors
+
   def self.ransackable_associations(auth_object = nil)
     ["nomination", "users", "votes"]
   end
