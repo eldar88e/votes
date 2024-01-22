@@ -10,7 +10,7 @@
         <div class="col-sm-1 col-md-10">
           <div class="progress">
             <% percent = count_percent(candidate.id) %>
-            <div class="progress-bar" style="<%= percent.zero? ? 'width: 100%; background: #4d94ff;' : "width: #{percent}%;" %>">
+            <div class="progress-bar" style="<%= percent.zero? ? 'width: 100%; color: #0d6efd; background-color: #e9ecef;' : "width: #{percent}%;" %>">
               <div>
                 <% if percent.zero? %>
                   Еще не проголосовали.

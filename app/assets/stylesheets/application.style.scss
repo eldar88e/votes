@@ -92,9 +92,13 @@ label > .img-cover-main:hover > .candidate{
   margin-top: 1em;
 }
 
-.progress > div > div > span {
-  font-size: 12px;
-  display: inline-block;
+.progress {
+  border: 1px solid #0c61df;
+
+  & > div > div > span {
+    font-size: 12px;
+    display: inline-block;
+  }
 }
 
 .btn-cover {
