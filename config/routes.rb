@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
     resources :votes, only: %i[index create]
 
+    resources :candidates, only: %i[new create]
+
     root 'votes#index'
   end
 end

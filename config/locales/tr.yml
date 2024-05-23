@@ -13,3 +13,5 @@ tr:
   voting: 'Oylama'
   button_vote: 'Oy'
   voting_results: 'Oylama Sonuçları'
+  not_voted: 'Henüz oy vermediniz'
+  votes: 'oy'

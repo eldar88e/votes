@@ -7,6 +7,9 @@ en:
   sign_up: 'Sign up'
   sign_in: 'Sign in'
   hello: 'Hello'
+  voting: 'Voting'
   main_header: 'Pride of the state'
   button_vote: 'Vote'
   button_sign_out: 'Sign out'
+  not_voted: "Haven't voted yet"
+  votes: 'votes'

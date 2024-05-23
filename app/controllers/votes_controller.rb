@@ -22,7 +22,7 @@ class VotesController < ApplicationController
       flash.now[:alert] = 'Вы не смогли проголосовать.'
     end
   rescue ActiveRecord::RecordNotUnique => e
-    flash.now[:alert] = "#{e}"
+    flash.now[:alert] = e
   end
 
   private

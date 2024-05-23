@@ -13,3 +13,5 @@ ru:
   voting: 'Голосование'
   button_vote: 'Голосовать'
   button_sign_out: 'Выйти'
+  not_voted: 'Еще не проголосовали'
+  votes: 'голосов'

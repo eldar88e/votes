@@ -1,3 +1,5 @@
+return unless Rails.env.development?
+
 NOMINATION = [{ title: 'Учитель' }, { title: 'Воспитатель' }, { title: 'Спортсмен' }, { title: 'Врач' }].freeze
 
 biography = -> { Faker::Lorem.paragraph(sentence_count: 2, supplemental: false)[0, 500] }
@@ -16,8 +18,8 @@ CANDIDATES =
    { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 4 },
    { title: Faker::Name.name, description: biography.call, img: '/images/alxa0366-1.jpg', nomination_id: 4 }].freeze
 
-Nomination.create(NOMINATION)
-Candidate.create(CANDIDATES)
+Nomination.create!(NOMINATION)
+Candidate.create!(CANDIDATES)
 
 # Faker::PhoneNumber.cell_phone
 User.create(email: Faker::Internet.email, password: '123456', phone: '7978353456', status: true)
@@ -38,5 +40,6 @@ users_ids.each do |id|
   nominations.each { |i| Vote.create(user_id: id, candidate_id: rand(rands[i - 1]), nomination_id: i) }
 end
 
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+
 puts '*****The tables were filled!*****'
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

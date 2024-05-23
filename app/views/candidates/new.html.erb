@@ -1,0 +1,31 @@
+<div class="container">
+  <%= form_with(model: @candidate) do |form| %>
+
+    <%= turbo_frame_tag :error_candidate do %>
+      <%= render partial: '/partials/error', locals: { model: form.object } %>
+    <% end %>
+
+    <% I18n.available_locales.each do |locale| %>
+      <div class="mb-3">
+        <%= form.label (locale == :en ? 'title' : "title_#{locale}"), class: "form-label" %>
+        <%= form.text_field (locale == :en ? 'title' : "title_#{locale}"), class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= form.label (locale == :en ? 'description' : "description_#{locale}"), class: "form-label" %>
+        <%= form.text_area (locale == :en ? 'description' : "description_#{locale}"), class: "form-control" %>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <%= form.label :photo, class: "form-label" %>
+      <%= form.file_field :photo, class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :nomination_id, class: "form-label" %>
+      <%= form.collection_select(:nomination_id, Nomination.all, :id, :title, {}, { :class => 'form-select' }) %>
+    </div>
+
+    <%= form.submit 'Create Candidate', class: 'btn btn-primary'%>
+  <% end %>
+</div>

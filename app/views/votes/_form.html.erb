@@ -1,15 +1,7 @@
 <turbo-frame id="form-<%= nomination.id %>">
-  <%= form_with(model: Vote.new, local: true, remote: true, method: :post) do |form| %>
-    <% if form.object.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(form.object.errors.count, "ошибка") %> запрещает проголосовать:</h2>
-        <ul>
-          <% form.object.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+  <%= form_with(model: Vote.new, local: true, method: :post) do |form| %>
+
+    <%= render partial: '/partials/error', locals: { model: form.object } %>
 
     <%= form.hidden_field  :nomination_id, value: nomination.id %>
 
@@ -20,7 +12,7 @@
           <label>
             <%= form.radio_button  :candidate_id, candidate.id %>
             <div class="img-cover-main <%= 'img-cover' unless hide %>">
-              <div style="background-image: url('<%= candidate.img %>');" class="candidate"></div>
+              <div style="background-image: url('<%= candidate.img.present? ? candidate.img : url_for(candidate.photo) %>');" class="candidate"></div>
             </div>
           </label>
           <h4><%= candidate.title %></h4>
