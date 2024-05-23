@@ -13,9 +13,9 @@
             <div class="progress-bar" style="<%= percent.zero? ? 'width: 100%; color: #0d6efd; background-color: #e9ecef;' : "width: #{percent}%;" %>">
               <div>
                 <% if percent.zero? %>
-                  Еще не проголосовали.
+                  <%= t(:not_voted) %>
                 <% else %>
-                  <%= @size_votes %>–<%= percent %>% из <%= @votes.size %> Голосов.
+                  <%= @size_votes %>–<%= percent %>% из <%= "#{@votes.size} #{t(:votes)}" %>
                 <% end %>
               </div>
             </div>
