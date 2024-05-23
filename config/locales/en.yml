@@ -13,3 +13,6 @@ en:
   button_sign_out: 'Sign out'
   not_voted: "Haven't voted yet"
   votes: 'votes'
+  errors:
+    one: "1 error"
+    other: "%{count} errors"

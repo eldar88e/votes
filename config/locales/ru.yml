@@ -15,3 +15,7 @@ ru:
   button_sign_out: 'Выйти'
   not_voted: 'Еще не проголосовали'
   votes: 'голосов'
+  errors:
+    one: "1 ошибка"
+    few: "%{count} ошибки"
+    many: "%{count} ошибок"

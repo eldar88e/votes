@@ -15,3 +15,6 @@ tr:
   voting_results: 'Oylama Sonuçları'
   not_voted: 'Henüz oy vermediniz'
   votes: 'oy'
+  errors:
+    one: "1 hata"
+    other: "%{count} hata"

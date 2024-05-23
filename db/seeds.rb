@@ -28,7 +28,7 @@ User.create(email: Faker::Internet.email, password: '123456', phone: '2589435345
 User.create(email: Faker::Internet.email, password: '123456', phone: '9632687668', status: true)
 User.create(email: Faker::Internet.email, password: '123456', phone: '1478121233', status: true)
 User.create(email: Faker::Internet.email, password: '123456', phone: '2584797899', status: true)
-User.create(email: 'test@test.tt', password: '123456', phone: '90505111111', status: true)
+User.create(email: 'test@test.tt', password: '12345678', phone: '90505111111', status: true)
 
 rands = [(1..3), (4..6), (7..9), (10..12)]
 
